@@ -183,44 +183,30 @@ namespace QuickSortNS {
     //TODO Implement function to partition the array based on https://en.wikipedia.org/wiki/Quicksort
     int partitioning(int *arr, int lo, int hi) {
         //PUT YOUR CODE HERE
-        int pivot = arr[lo];
-        int count = 0;
+        if (hi - lo < 1)
+            return 0;
 
-        for (int i = 1; i <= hi; i++)
+        for (int lower = lo, pivot = hi; lower < pivot;)
         {
-            if (arr[i] <= pivot)
-                count++;
+            if (arr[lower] < arr[pivot])
+                ++lower;
+            else
+            {
+                swap(&arr[pivot], &arr[pivot - 1]);
+
+                if (pivot - 1 != lower)
+                    swap(&arr[pivot], &arr[lower]);
+                
+                --pivot;
+            }
+            partitioning(arr, lo, pivot - 1);
+            partitioning(arr, pivot + 1, hi);
         }
-
-        int pivotIndex = lo + count;
-        swap(arr[pivotIndex], arr[lo]);
-
-        int i = lo,
-            j = hi;
-
-        while (i < pivotIndex && j > pivotIndex)
-        {
-            while (arr[i] <= pivot)
-                i++;
-
-            while (arr[j] > pivot)
-                j++;
-
-            if (i < pivotIndex && j > pivotIndex)
-                swap(arr[i++], arr[j--]);
-        }
-        return pivotIndex;
     }
 
     //TODO Implement function quick sort function based on https://en.wikipedia.org/wiki/Quicksort
     void quicksort(int *arr, int low, int high) {
-        if (low >= high)
-            return;
-
-        int p = partitioning(arr, low, high);
-
-        quicksort(arr, low, p - 1);
-        quicksort(arr, p + 1, high);
+        partitioning(arr, low, high);
     }
 }
 

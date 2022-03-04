@@ -201,11 +201,12 @@ namespace QuickSortNS {
                 
                 --pivot;
             }
+            
+        }
             partitioning(arr, lo, pivot - 1);
             partitioning(arr, pivot + 1, hi);
 
             return 0;
-        }
     }
 
     //TODO Implement function quick sort function based on https://en.wikipedia.org/wiki/Quicksort

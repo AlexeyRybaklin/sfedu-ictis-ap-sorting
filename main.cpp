@@ -85,17 +85,17 @@ void swap(int *a1, int *a2) {
 
 //TODO implement method to generate Test Array
 int *generateTestArray(int size) {
-    int* res;
+    int* result;
     int* iter;
 
-    iter = res = (int*)malloc(sizeof(int) * size);
+    iter = result = (int*)malloc(sizeof(int) * size);
 
-    for (; iter != res + size; iter++)
+    for (; iter != result + size; iter++)
     {
         *iter = rand() % 10000;
     }
 
-    return res;
+    return result;
 }
 
 //TODO implement a function to cleanup file before saving data there.
@@ -186,14 +186,14 @@ namespace QuickSortNS {
         if (hi - lo < 1)
             return 0;
 
-        for (int lower = lo, pivot = hi; lower < pivot;)
+        for (int lower = lo, int pivot = hi; lower < pivot;)
         {
             if (arr[lower] < arr[pivot])
                 ++lower;
             else
             {
                 swap(&arr[pivot], &arr[pivot - 1]);
-
+                    
                 if (pivot - 1 != lower)
                     swap(&arr[pivot], &arr[lower]);
                 
@@ -201,6 +201,8 @@ namespace QuickSortNS {
             }
             partitioning(arr, lo, pivot - 1);
             partitioning(arr, pivot + 1, hi);
+
+            return 0;
         }
     }
 

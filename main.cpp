@@ -183,10 +183,12 @@ namespace QuickSortNS {
     //TODO Implement function to partition the array based on https://en.wikipedia.org/wiki/Quicksort
     int partitioning(int *arr, int lo, int hi) {
         //PUT YOUR CODE HERE
+        int lower, pivot;
+        
         if (hi - lo < 1)
             return 0;
 
-        for (int lower = lo, int pivot = hi; lower < pivot;)
+        for (lower = lo, pivot = hi; lower < pivot;)
         {
             if (arr[lower] < arr[pivot])
                 ++lower;

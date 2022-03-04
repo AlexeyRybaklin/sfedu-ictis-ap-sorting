@@ -85,11 +85,17 @@ void swap(int *a1, int *a2) {
 
 //TODO implement method to generate Test Array
 int *generateTestArray(int size) {
-    int arr[size];
-    for (int i = 0; i < size; i++)
+    int* res;
+    int* iter;
+
+    iter = res = (int*)malloc(sizeof(int) * size);
+
+    for (; iter != res + size; iter++)
     {
-        arr[i] = rand() % 100000;
+        *iter = rand() % 10000;
     }
+
+    return res;
 }
 
 //TODO implement a function to cleanup file before saving data there.
@@ -112,7 +118,7 @@ void saveExecutionTimeToFile(const char *fileName, int arrSize, unsigned long ti
 
 //TODO implement Bubble Sort alg based on https://en.wikipedia.org/wiki/Bubble_sort
 void bubbleSort(int *arr, int size) {
-    for (int a = 0, a < size - 1; a++)
+    for (int a = 0; a < size - 1; a++)
     {
         for (int i = 0; i < size; i++)
         {
@@ -157,7 +163,7 @@ namespace SelectionSortNS {
             if (arr[min] > arr[from])
                 min = from;
         }
-        return arr[min];
+        return &arr[min];
     }
 
     //TODO implement Selection sorting algorithm based on https://en.wikipedia.org/wiki/Selection_sort

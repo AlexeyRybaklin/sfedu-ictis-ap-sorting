@@ -120,7 +120,7 @@ void saveExecutionTimeToFile(const char *fileName, int arrSize, unsigned long ti
 void bubbleSort(int *arr, int size) {
     for (int a = 0; a < size; a++)
     {
-        for (int i = i + 1; i < size; i++)
+        for (int i = a + 1; i < size; i++)
         {
             if (arr[a] > arr[i])
                 swap(&arr[a], &arr[i]);
@@ -135,7 +135,7 @@ void insertionSort(int *arr, int size) {
         for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--)
         {
             swap(&arr[j - 1], &arr[j]);
-        }
+        }   
     }
 }
 

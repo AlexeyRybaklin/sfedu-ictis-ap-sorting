@@ -118,13 +118,12 @@ void saveExecutionTimeToFile(const char *fileName, int arrSize, unsigned long ti
 
 //TODO implement Bubble Sort alg based on https://en.wikipedia.org/wiki/Bubble_sort
 void bubbleSort(int *arr, int size) {
-    for (int a = 0; a < size - 1; a++)
+    for (int a = 0; a < size; a++)
     {
-        for (int i = 0; i < size; i++)
+        for (int i = i + 1; i < size; i++)
         {
-            if (arr[i] > arr[i + 1])
-                swap(arr[i], arr[i + 1]);
-
+            if (arr[a] > arr[i])
+                swap(&arr[a], &arr[i]);
         }
     }
 }
@@ -133,15 +132,10 @@ void bubbleSort(int *arr, int size) {
 void insertionSort(int *arr, int size) {
     for (int i = 0; i < size; i++)
     {
-        int key = arr[i];
-        int j = i - 1;
-
-        while (j >= 0 && arr[j] > key)
+        for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--)
         {
-            arr[j + 1] = arr[i];
-            j--;
+            swap(&arr[j - 1], &arr[j]);
         }
-        arr[j + 1] = key;
     }
 }
 

@@ -214,7 +214,6 @@ namespace QuickSortNS {
 
     //TODO Implement function quick sort function based on https://en.wikipedia.org/wiki/Quicksort
     void quicksort(int *arr, int low, int high) {
-        //PUT YOUR CODE HERE
         if (low >= high)
             return;
 
